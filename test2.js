@@ -36,16 +36,17 @@ function formatDate(time = +new Date()) {
 obj.obj.expireFlag = false
 obj.obj.nucleicInfo.expireHour = 48
 obj.obj.vaccineInfo.vaccinateCount = 4
+obj.obj.nucleicInfo.timeDesc="48"
 
 //过期时间
 const myExpireTimeStamp = Date.now() + 1000 * 60 * 60 * 24 * 1 
 obj.obj.nucleicInfo.expireTime = formatDate(myExpireTimeStamp)
-obj.obj.nucleicInfo.expireTimeStamp = myExpireTimeStamp.toString()
+obj.obj.nucleicInfo.expireTimeStamp = +myExpireTimeStamp.toString()
 
 //采样时间
 const mySampleTime = Date.now() - 1000 * 60 * 60 * 24 * 1 + 1000 * 60 * 54
 obj.obj.nucleicInfo.samplingTime = formatDate(mySampleTime)
-obj.obj.nucleicInfo.sampleTimestamp = mySampleTime.toString()
+obj.obj.nucleicInfo.sampleTimestamp = +mySampleTime.toString()
 
 body = JSON.stringify(obj)
 $done(body)
